@@ -1,0 +1,77 @@
+
+<style>
+    .register-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-color: #f5f5f5;
+    }
+
+    .register-form {
+        background-color: white;
+        padding: 2rem;
+        border-radius: 8px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .register-form mat-form-field {
+        width: 100%;
+    }
+
+    .register-form button {
+        width: 100%;
+    }
+</style>
+
+<div class="register-container">
+    <div class="register-form">
+        <div class="flex flex-column mt-4">
+            <span class="text-lg mb-4">Registro de nuevo usuario</span>
+
+            <mat-form-field>
+                <mat-label>Nombre</mat-label>
+                <input type="text" matInput placeholder="Nombre" required>
+            </mat-form-field>
+
+            <mat-form-field>
+                <mat-label>Apellido</mat-label>
+                <input type="text" matInput placeholder="Apellido" required>
+            </mat-form-field>
+
+            <mat-form-field>
+                <mat-label>Correo Electrónico</mat-label>
+                <input type="email" matInput placeholder="Correo Electrónico" required>
+            </mat-form-field>
+
+            <mat-form-field>
+                <mat-label>Usuario</mat-label>
+                <input type="text" matInput placeholder="Nombre de usuario" required>
+            </mat-form-field>
+
+            <mat-form-field>
+                <mat-label>Teléfono</mat-label>
+                <input type="tel" matInput placeholder="Número de teléfono" required>
+            </mat-form-field>
+
+            <mat-form-field>
+                <mat-label>Contraseña</mat-label>
+                <input type="password" matInput placeholder="Contraseña" required>
+            </mat-form-field>
+
+            <mat-form-field>
+                <mat-label>Confirmar Contraseña</mat-label>
+                <input type="password" matInput placeholder="Confirmar Contraseña" required>
+            </mat-form-field>
+
+            <button mat-button mat-flat-button color="primary" class="mt-4">
+                <mat-icon>how_to_reg</mat-icon>
+                Registrarse
+            </button>
+
+            <div class="flex justify-content-end mt-5">
+                <a routerLink="/auth/login">¿Ya tienes una cuenta? Inicia sesión</a>
+            </div>
+        </div>
+    </div>
+</div>
