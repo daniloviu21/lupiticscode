@@ -21,7 +21,7 @@ const routes: Routes = [
   },
   {
     path: '',
-    redirectTo: 'heores',
+    redirectTo: 'heroes',
     pathMatch: 'full' //asegura que la redirecciión solo ocurra si la ruta esta completamente vacía
   },
   {
