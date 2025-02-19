@@ -6,17 +6,15 @@ import { AppComponent } from './app.component';
 import { SharedModule } from './shared/shared.module';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { provideHttpClient } from '@angular/common/http';
-import { CardComponent } from './heores/components/card/card.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    CardComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    SharedModule
+    SharedModule,
   ],
   providers: [
     provideClientHydration(withEventReplay()),
