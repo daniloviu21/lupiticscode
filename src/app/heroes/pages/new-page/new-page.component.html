@@ -6,21 +6,25 @@
       <mat-label>Nombre</mat-label>
       <input matInput formControlName="name" required>
     </mat-form-field>
+    <br>
 
     <mat-form-field appearance="fill">
       <mat-label>Alias</mat-label>
       <input matInput formControlName="alias" required>
     </mat-form-field>
+    <br>
 
     <mat-form-field appearance="fill">
       <mat-label>Poderes Especiales</mat-label>
       <input matInput formControlName="powers">
     </mat-form-field>
+    <br>
 
     <mat-form-field appearance="fill">
       <mat-label>Primera Aparición</mat-label>
       <input matInput formControlName="firstAppearance">
     </mat-form-field>
+    <br>
 
     <mat-form-field appearance="fill">
       <mat-label>Editorial</mat-label>
@@ -41,8 +45,12 @@
     </div>
 
     <div class="buttons">
-      <button mat-button type="reset" (click)="onReset()" class="cancel-btn">Cancelar</button>
-      <button mat-raised-button color="primary" type="submit" class="save-btn">Guardar</button>
+      <button mat-button type="reset" (click)="onReset()" class="cancel-btn">
+        <mat-icon>delete</mat-icon> Borrar
+      </button>
+      <button mat-raised-button color="primary" type="submit" class="save-btn">
+        <mat-icon>save</mat-icon> Guardar
+      </button>
     </div>
   </form>
 </div>
