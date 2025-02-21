@@ -1,1 +1,36 @@
-<p>hero-page works!</p>
+<div>
+    <mat-card *ngIf="hero" style=" margin-left: 500px; margin-right: 150px; width: fit-content">
+      <mat-card-header>
+        <mat-card-title>{{ hero.superhero }}</mat-card-title>
+        <mat-card-subtitle>{{ hero.publisher }}</mat-card-subtitle>
+      </mat-card-header>
+  
+      <img mat-card-image
+           [src]="'images/heroes/' + hero.id + '.jpg'"
+           [alt]="hero.superhero" style="width: fit-content; height: fit-content; ">
+  
+      <mat-card-content>
+        <h4> Primera aparición: {{ hero.first_appearance }}</h4>
+        <p>
+          <strong>Personajes:</strong>
+          <mat-chip-listbox>
+            <mat-chip *ngFor="let name of hero.characters.split(',') | slice:0:3">
+              {{ name }}
+            </mat-chip>
+          </mat-chip-listbox>
+        </p>
+      </mat-card-content>
+  
+      <mat-divider></mat-divider>
+  
+      <mat-card-actions>
+        <button mat-button mat-raised [routerLink]="['/heroes/edit', hero.id]">
+          <mat-icon>edit</mat-icon> Editar
+        </button>
+  
+        <span class="spacer"></span>
+      </mat-card-actions>
+    </mat-card>
+  
+  </div>
+  

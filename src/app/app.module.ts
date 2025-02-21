@@ -5,11 +5,11 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SharedModule } from './shared/shared.module';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
-import { provideHttpClient } from '@angular/common/http';
+import { provideHttpClient, withFetch } from '@angular/common/http';
 
 @NgModule({
   declarations: [
-    AppComponent,
+    AppComponent
   ],
   imports: [
     BrowserModule,
@@ -19,7 +19,7 @@ import { provideHttpClient } from '@angular/common/http';
   providers: [
     provideClientHydration(withEventReplay()),
     provideAnimationsAsync(),
-    provideHttpClient(), //Configura http client
+    provideHttpClient(withFetch()), //Configura http client
   ],
   bootstrap: [AppComponent]
 })
