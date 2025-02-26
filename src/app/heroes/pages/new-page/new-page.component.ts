@@ -18,9 +18,9 @@ export class NewPageComponent {
       name: ['', Validators.required],
       alias: ['', Validators.required],
       powers: [''],
-      firstAppearance: [''],
-      publisher: [''],
-      image: [null]
+      firstAppearance: ['', Validators.required],
+      publisher: ['', Validators.required],
+      image: [null, Validators.required]
     });
   }
 

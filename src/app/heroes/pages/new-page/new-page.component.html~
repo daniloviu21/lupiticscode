@@ -1,0 +1,56 @@
+<div class="container">
+  <h2 class="title">Agregar Héroe</h2>
+
+  <form [formGroup]="heroForm" (ngSubmit)="onSubmit()" class="hero-form">
+    <mat-form-field appearance="fill">
+      <mat-label>Nombre</mat-label>
+      <input matInput formControlName="name" required>
+    </mat-form-field>
+    <br>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Alias</mat-label>
+      <input matInput formControlName="alias" required>
+    </mat-form-field>
+    <br>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Poderes Especiales</mat-label>
+      <input matInput formControlName="powers">
+    </mat-form-field>
+    <br>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Primera Aparición</mat-label>
+      <input matInput formControlName="firstAppearance">
+    </mat-form-field>
+    <br>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Editorial</mat-label>
+      <input matInput formControlName="publisher">
+    </mat-form-field>
+
+    <!-- Campo para subir imagen con Angular Material -->
+    <div class="image-upload">
+      <input type="file" (change)="onFileSelected($event)" accept="image/*" hidden #fileInput>
+
+      <button mat-raised-button color="accent" (click)="fileInput.click()">
+        <mat-icon>cloud_upload</mat-icon> Subir Imagen
+      </button>
+
+      <div *ngIf="imagePreview" class="preview-container">
+        <img [src]="imagePreview" class="preview-image">
+      </div>
+    </div>
+
+    <div class="buttons">
+      <button mat-button type="reset" (click)="onReset()" class="cancel-btn">
+        <mat-icon>delete</mat-icon> Borrar
+      </button>
+      <button mat-raised-button color="primary" type="submit" class="save-btn">
+        <mat-icon>save</mat-icon> Guardar
+      </button>
+    </div>
+  </form>
+</div>
