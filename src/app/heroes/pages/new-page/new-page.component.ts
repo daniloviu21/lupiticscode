@@ -1,5 +1,9 @@
-import { Component } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import {Component} from '@angular/core';
+import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
+import {Hero, Publisher} from '../../interfaces/hero.interface';
+import {HeoresService} from '../../services/heroes.service';
+import {HttpClient} from '@angular/common/http';
+
 @Component({
   selector: 'app-new-page',
   standalone: false,
@@ -13,7 +17,7 @@ export class NewPageComponent {
   selectedFile: File | null = null;
   imagePreview: string | null = null;
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, private http: HttpClient) {
     this.heroForm = this.fb.group({
       name: ['', Validators.required],
       alias: ['', Validators.required],
@@ -38,8 +42,25 @@ export class NewPageComponent {
 
   onSubmit() {
     if (this.heroForm.valid) {
-      console.log('Datos del héroe:', this.heroForm.value);
-      console.log('Imagen seleccionada:', this.selectedFile);
+      const heroData = this.heroForm.value;
+      const formData = new FormData();
+      formData.append('id', heroData.name);
+      formData.append('superhero', heroData.alias);
+      formData.append('publisher', heroData.publisher);
+      formData.append('alter_ego', heroData.powers);
+      formData.append('first_appearance', heroData.firstAppearance);
+      formData.append('characters', heroData.characters);
+      if (this.selectedFile) {
+        formData.append('image', this.selectedFile);
+      }
+
+      this.http.post('http://localhost:3000/heroes', formData)
+        .subscribe(response => {
+          console.log('Héroe creado con éxito:', response);
+          this.onReset();
+        }, error => {
+          console.error('Error al crear héroe:', error);
+        });
     }
   }
 
