@@ -1,7 +1,5 @@
 import {Component} from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
-import {Hero, Publisher} from '../../interfaces/hero.interface';
-import {HeoresService} from '../../services/heroes.service';
 import {HttpClient} from '@angular/common/http';
 
 @Component({
